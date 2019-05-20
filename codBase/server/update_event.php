@@ -3,7 +3,7 @@
  session_start();
 
  if(isset($_SESSION['username'])){
-   $con = new ConectorBD();
+   $con = new ConectorBD('localhost', 'root', '');
    if ($con->initConexion('agendas')=='OK') {
      $data['start_date'] = '"'.$_POST['start_date'].'"';
      $data['end_date'] = '"'.$_POST['end_date'].'"';
@@ -22,6 +22,6 @@
  } else {
    $response['msg'] = 'No existe una sesion activa';
  }
-
+ echo json_encode($response);
 
  ?>

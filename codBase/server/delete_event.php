@@ -16,9 +16,9 @@
     }
 
   } else {
-    $response['msg'] = 'No existe una sesion activa'
+    $response['msg'] = 'No existe una sesion activa';
   }
 
-
+echo json_encode($response);
 
  ?>

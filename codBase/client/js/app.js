@@ -25,7 +25,7 @@ class EventsManager {
             }
           },
           error: function(){
-            alert("error en la comunicación con el servidor obtener");
+            alert("error en la comunicación con el servidor");
           }
         })
 
