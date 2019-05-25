@@ -9,7 +9,7 @@
      $data['end_date'] = '"'.$_POST['end_date'].'"';
      $data['start_hour'] = '"'.$_POST['start_hour'].'"';
      $data['end_hour'] = '"'.$_POST['end_hour'].'"';
-     if ($cond->actualizarRegistro('eventos', $data, 'id = '.$_POST['id'])) {
+     if ($con->actualizarRegistro('eventos', $data, 'id ='.$_POST['id'])) {
        $response['msg'] = 'OK';
      } else {
        $response['msg'] = 'Ocurrio un error al actualizar el registro';

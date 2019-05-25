@@ -6,7 +6,12 @@ session_start();
 if (isset($_SESSION['username'])) {
   $con = new ConectorBD('localhost', 'root', '');
   if ($con->initConexion('agendas')=='OK') {
-    $resultado = $con->consultar(['eventos'], ['*'], 'WHERE fk_usuario = "'.$_SESSION['username'].'"');
+    $consultar_user = $con->consultar(['usuarios'], ['id'], 'WHERE username = "'.$_SESSION['username'].'"');
+      if ($consultar_user->num_rows != 0) {
+        $user_id = $consultar_user->fetch_assoc();
+      }
+
+    $resultado = $con->consultar(['eventos'], ['*'], 'WHERE fk_usuario = "'.$user_id['id'].'"');
     if ($resultado) {
       $i=0;
       while ($fila = $resultado->fetch_assoc()) {
